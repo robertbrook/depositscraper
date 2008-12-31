@@ -9,12 +9,12 @@ require "enumerator"
 doc = Nokogiri::HTML(open("deposits.html"))
 targets = Array.new
 
-(doc/"tr").each do |tr|
-  targets << tr.inner_html
+doc.css('tr').each do |tr|
+  targets << tr.content
 end
 
 targets.slice!(0..4)
-targets.each_slice(4) {|a| y a}
+targets.each_slice(4) {|a| y a.slice(1..2)}
 
 
 # 
