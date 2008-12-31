@@ -1,9 +1,11 @@
 require 'rubygems'
-require 'hpricot'
+require 'nokogiri'
 require 'open-uri'
 require 'enumerator'
 
-doc = Hpricot.XML(open("http://deposits.parliament.uk/"))
+# http://deposits.parliament.uk/
+
+doc = Nokogiri::HTML(open("deposits.html"))
 targets = Array.new
 
 (doc/"tr/td[@bgcolor='#e3e3e3']").each do |td|
