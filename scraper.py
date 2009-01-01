@@ -14,8 +14,8 @@ for line in deposits_html:
             del e3e3e3[0:5]
             list_of_lists = []
             for i in xrange(0, len(e3e3e3), 4):
-                first = valign.findall(e3e3e3[i])
+                first = valign.findall(e3e3e3[i])[0]
                 second = td_colspan.findall(e3e3e3[i+1])[0]
                 third = td_i.findall(e3e3e3[i+2])[0]
-                list_of_lists.append([first, second, third])
+                list_of_lists.append((first, second, third))
             pprint.pprint(list_of_lists)
